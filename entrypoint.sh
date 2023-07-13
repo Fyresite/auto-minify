@@ -107,7 +107,7 @@ exec_minify_cmd () {
 
 	if [[ $file == *.js ]]; then
 		exec_minify_js $file $out
-	if [[ $file == *.js.liquid ]]; then
+	elif [[ $file == *.js.liquid ]]; then
 		exec_minify_js $file $out
 	elif [[ $file == *.css ]]; then
 		npx cleancss -o $out $file
