@@ -35,12 +35,12 @@ output_name () {
 		mkdir -p $f_path
 	fi
 
-	min_extn="" # removed this .min because it was messing with .js.liquid file names and we already move the files to a /min directory
+	min_extn="-min" # removed this .min because it was messing with .js.liquid file names and we already move the files to a /min directory
 	if $overwrite; then
 		min_extn=""
 	fi
 
-	echo "$f_path/$f_name$f_extn" | xargs readlink -m
+	echo "$f_path/$f_name$min_extn$f_extn" | xargs readlink -m
 }
 
 find_files () {
@@ -68,7 +68,7 @@ find_files () {
 		MAXDEPTH_KEY=""
 	fi
 
-	find $in_dir ${MAXDEPTH_KEY} ${MAXDEPTH_VAL} -type f -name "*.$1" -not \( -iname "*\.min.$1" \)
+	find $in_dir ${MAXDEPTH_KEY} ${MAXDEPTH_VAL} -type f -name "*.$1" -not \( -iname "*\-min.$1" \)
 }
 
 exec_minify_js () {
