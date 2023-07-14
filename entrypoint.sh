@@ -86,6 +86,9 @@ exec_minify_js () {
 
 	js_engine=$INPUT_JS_ENGINE
 
+	echo "out"
+	echo $out
+
 	if [[ $js_engine == "babel" ]]; then
 		npx minify $file --out-file $out
 	elif [[ $js_engine == "uglify-js" ]]; then
