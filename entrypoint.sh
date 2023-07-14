@@ -40,7 +40,7 @@ output_name () {
 		min_extn=""
 	fi
 
-	echo "$f_path/$f_name$min_extn$f_extn" | xargs readlink -m
+	echo "$f_path/$f_name$f_extn" | xargs readlink -m
 }
 
 find_files () {
