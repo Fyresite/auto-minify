@@ -35,7 +35,7 @@ output_name () {
 		mkdir -p $f_path
 	fi
 
-	min_extn=".min"
+	min_extn="" # removed this .min because it was messing with .js.liquid file names and we already move the files to a /min directory
 	if $overwrite; then
 		min_extn=""
 	fi
